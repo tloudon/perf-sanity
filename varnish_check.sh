@@ -40,10 +40,10 @@ done
 
   #simple summary
   printf "%d HITS\n" $HITS
-  printf "%d MISSES\n" $MISSES
+  printf "%d MISSES\n\n" $MISSES
 
   #list out all of the misses
-  if [ $MISSES > 0 ]
+  if [ "$MISSES" -gt 0 ]
   then
   cat <<EOL
 =====================================MISSES=====================================
@@ -58,5 +58,6 @@ done
   cat <<EOL
 
 ================================================================================
+
 EOL
   fi
