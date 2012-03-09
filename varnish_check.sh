@@ -25,7 +25,9 @@ do
   RESULT=$(echo ${RESULT:17})
   RESULT=$(echo ${RESULT%?})
 
-  printf "%s %s" $url $RESULT
+  #DEBUG
+  #printf "%s %s\n" $url $RESULT
+
   #report misses
   if [ "$RESULT" == "MISS" ]
   then
@@ -39,6 +41,10 @@ done
   #simple summary
   printf "%d HITS\n" $HITS
   printf "%d MISSES\n" $MISSES
+
+  #list out all of the misses
+  if [ $MISSES > 0 ]
+  then
   cat <<EOL
 =====================================MISSES=====================================
 
@@ -53,3 +59,4 @@ done
 
 ================================================================================
 EOL
+  fi
